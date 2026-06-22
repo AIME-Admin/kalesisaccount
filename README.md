@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# Λογιστικό Γραφείο Φιλιππός Καλέσης — Website (Pack 2)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Premium one-page website with smart intake form, knowledge assistant
+(Βοηθός Συνεργασίας), SEO-rich FAQ and full structured data.
 
-Currently, two official plugins are available:
+Stack: **Vite 7 · React 19 · TypeScript · Tailwind CSS v3 · shadcn/ui · framer-motion**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Develop
 
-## React Compiler
+This repo lives on the WSL filesystem; run tooling inside WSL (Windows npm fails
+on the UNC path):
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # local dev server
+npm run build    # type-check + production build → dist/
+npm run lint     # eslint (vendored src/components/ui is ignored)
+npm run preview  # serve the built dist/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Configuration (`.env`)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Copy `.env.example` to `.env` and fill in before final deployment. Nothing here
+is required for the site to build — sensible placeholders are used until set.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Variable | Purpose |
+| --- | --- |
+| `VITE_SITE_URL` | Final domain — used for canonical, Open Graph & JSON-LD. |
+| `VITE_GOOGLE_FORM_EMBED_URL` | Google Form embed `src` (`…/viewform?embedded=true`). Embeds the intake form. |
+| `VITE_GOOGLE_FORM_PUBLIC_URL` | Public Google Form link (the "open in new tab" button). |
+| `VITE_GA_ID` | Google Analytics 4 id (`G-XXXX`). Loads GA only when set. |
+| `VITE_GTM_ID` | Google Tag Manager id (`GTM-XXXX`). Loads GTM only when set. |
+
+The default domain in `index.html` (canonical / OG) is `kalesis-accounting.gr` —
+change it there and via `VITE_SITE_URL` on the final domain.
+
+## Brand assets
+
+Icons and the social preview card are generated from `src/assets/logo.png`
+(high-res master) into `public/`:
+
+```bash
+node scripts/gen-assets.mjs   # needs: npm i --no-save sharp
 ```
+
+Outputs: `public/logo.png` (used everywhere), `favicon.png`,
+`apple-touch-icon.png`, `og-image.png` (1200×630).
+
+## Pending client input (placeholders in code)
+
+- `[ΠΕΡΙΟΧΗ / ΔΙΕΥΘΥΝΣΗ]` — business address / area (footer, About, JSON-LD).
+- `[ΩΡΕΣ ΛΕΙΤΟΥΡΓΙΑΣ]` — opening hours (footer).
+- Google Form URLs (intake) — set in `.env`.
+- Final domain — set in `.env` and `index.html`.
+- Footer legal links (Privacy / Cookies / Terms) — need real legal text.

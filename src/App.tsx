@@ -1,4 +1,5 @@
 import SEO from "./components/SEO";
+import Analytics from "./components/Analytics";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import SmartIntake from "./components/SmartIntake";
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <>
       <SEO />
+      <Analytics />
       <Navbar />
       <main>
         <Hero />

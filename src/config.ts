@@ -32,3 +32,7 @@ export const HAS_FORM_PUBLIC = GOOGLE_FORM_PUBLIC_URL.trim().length > 0;
 // Logo lives in /public so the same path works in dev and production builds.
 export const LOGO_SRC = "/logo.png";
 export const LOGO_ALT = "Λογιστικό Γραφείο Φιλιππός Καλέσης";
+
+// Analytics: scripts load only when an id is provided via .env (no hardcoding).
+export const GA_ID = (import.meta.env.VITE_GA_ID as string | undefined)?.trim() || "";
+export const GTM_ID = (import.meta.env.VITE_GTM_ID as string | undefined)?.trim() || "";

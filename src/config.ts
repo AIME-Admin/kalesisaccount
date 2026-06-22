@@ -19,6 +19,17 @@ export const BUSINESS = {
   email: "kalesisacc@gmail.com",
   emailHref: "mailto:kalesisacc@gmail.com",
   areaServed: "Ελλάδα",
+  address: {
+    street: "Γοργοποτάμου 10-12",
+    locality: "Αχαρνές",
+    postalCode: "13671",
+    region: "Αττική",
+    country: "GR",
+    display: "Γοργοποτάμου 10-12, Αχαρνές 13671",
+  },
+  mapsHref:
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent("Γοργοποτάμου 10-12, Αχαρνές 13671"),
 } as const;
 
 // Google Form: set these in .env to embed / link the real intake form.

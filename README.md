@@ -48,8 +48,9 @@ Outputs: `public/logo.png` (used everywhere), `favicon.png`,
 
 ## Pending client input (placeholders in code)
 
-- `[ΠΕΡΙΟΧΗ / ΔΙΕΥΘΥΝΣΗ]` — business address / area (footer, About, JSON-LD).
 - `[ΩΡΕΣ ΛΕΙΤΟΥΡΓΙΑΣ]` — opening hours (footer).
 - Google Form URLs (intake) — set in `.env`.
-- Final domain — set in `.env` and `index.html`.
 - Footer legal links (Privacy / Cookies / Terms) — need real legal text.
+
+Done: production domain (`filipposkalesis.gr`) and business address
+(Γοργοποτάμου 10-12, Αχαρνές 13671) are wired in `src/config.ts`.

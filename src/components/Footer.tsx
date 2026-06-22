@@ -67,10 +67,15 @@ export default function Footer() {
                 <Mail size={14} />
                 <span>{BUSINESS.email}</span>
               </a>
-              <div className="flex items-center gap-2.5 text-sm text-[#64748B]">
+              <a
+                href={BUSINESS.mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm text-[#94A3B8] hover:text-white transition-colors"
+              >
                 <MapPin size={14} />
-                <span>[ΠΕΡΙΟΧΗ / ΔΙΕΥΘΥΝΣΗ]</span>
-              </div>
+                <span>{BUSINESS.address.display}</span>
+              </a>
               <div className="flex items-center gap-2.5 text-sm text-[#64748B]">
                 <Clock size={14} />
                 <span>[ΩΡΕΣ ΛΕΙΤΟΥΡΓΙΑΣ]</span>

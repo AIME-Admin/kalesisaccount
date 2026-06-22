@@ -19,8 +19,11 @@ const jsonLdAccountingService = {
   sameAs: [],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "[ΠΕΡΙΟΧΗ]",
-    addressCountry: "GR",
+    streetAddress: BUSINESS.address.street,
+    addressLocality: BUSINESS.address.locality,
+    postalCode: BUSINESS.address.postalCode,
+    addressRegion: BUSINESS.address.region,
+    addressCountry: BUSINESS.address.country,
   },
   founder: {
     "@type": "Person",

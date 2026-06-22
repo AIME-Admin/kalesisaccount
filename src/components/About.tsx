@@ -81,10 +81,15 @@ export default function About() {
                   <Mail size={16} className="text-[#B91C1C]" />
                   <span>{BUSINESS.email}</span>
                 </a>
-                <div className="flex items-center gap-2.5 text-sm text-[#94A3B8]">
-                  <MapPin size={16} />
-                  <span>[ΠΕΡΙΟΧΗ / ΔΙΕΥΘΥΝΣΗ]</span>
-                </div>
+                <a
+                  href={BUSINESS.mapsHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 text-sm text-[#64748B] hover:text-[#B91C1C] transition-colors"
+                >
+                  <MapPin size={16} className="text-[#B91C1C] shrink-0" />
+                  <span>{BUSINESS.address.display}</span>
+                </a>
               </div>
             </div>
           </motion.div>

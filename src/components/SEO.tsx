@@ -15,6 +15,7 @@ const jsonLdAccountingService = {
   url: CANONICAL_URL,
   image: OG_IMAGE_URL,
   areaServed: BUSINESS.areaServed,
+  openingHours: BUSINESS.hours.schema,
   priceRange: "€€",
   sameAs: [],
   address: {

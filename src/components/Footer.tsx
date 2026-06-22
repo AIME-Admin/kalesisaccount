@@ -85,9 +85,9 @@ export default function Footer() {
                 <MapPin size={14} />
                 <span>{BUSINESS.address.display}</span>
               </a>
-              <div className="flex items-center gap-2.5 text-sm text-[#64748B]">
+              <div className="flex items-center gap-2.5 text-sm text-[#94A3B8]">
                 <Clock size={14} />
-                <span>[ΩΡΕΣ ΛΕΙΤΟΥΡΓΙΑΣ]</span>
+                <span>{BUSINESS.hours.display}</span>
               </div>
             </div>
           </div>

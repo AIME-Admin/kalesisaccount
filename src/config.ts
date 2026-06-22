@@ -27,6 +27,10 @@ export const BUSINESS = {
     country: "GR",
     display: "Γοργοποτάμου 10-12, Αχαρνές 13671",
   },
+  hours: {
+    display: "Δευτέρα - Παρασκευή, 09:00 - 17:00",
+    schema: "Mo-Fr 09:00-17:00",
+  },
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=" +
     encodeURIComponent("Γοργοποτάμου 10-12, Αχαρνές 13671"),

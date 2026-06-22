@@ -1,30 +1,42 @@
 import { motion } from "framer-motion";
+import {
+  ClipboardList,
+  Search,
+  PhoneCall,
+  FolderCheck,
+  Handshake,
+} from "lucide-react";
 
 const steps = [
   {
     num: 1,
+    icon: ClipboardList,
     title: "Συμπληρώνετε τη φόρμα",
     desc: "Στέλνετε τα βασικά στοιχεία και την υπηρεσία που σας ενδιαφέρει.",
   },
   {
     num: 2,
+    icon: Search,
     title: "Γίνεται αρχική αξιολόγηση",
-    desc: "Το γραφείο βλέπει το αίτημα και καταγράφει τα βασικά επόμενα βήματα.",
+    desc: "Το γραφείο βλέπει το αίτημα και καταγράφει τα επόμενα βήματα.",
   },
   {
     num: 3,
+    icon: PhoneCall,
     title: "Υπάρχει επικοινωνία",
-    desc: "Ο Φιλιππός Καλέσης επικοινωνεί μαζί σας για διευκρινίσεις ή οδηγίες.",
+    desc: "Ο Φίλιππος Καλέσης επικοινωνεί μαζί σας για διευκρινίσεις και οδηγίες.",
   },
   {
     num: 4,
+    icon: FolderCheck,
     title: "Συγκεντρώνονται τα απαραίτητα στοιχεία",
-    desc: "Λαμβάνετε καθοδήγηση για τα έγγραφα και τις πληροφορίες που χρειάζονται.",
+    desc: "Ανάλογα με την περίπτωση, ζητούνται τα σωστά δικαιολογητικά ή πληροφορίες.",
   },
   {
     num: 5,
+    icon: Handshake,
     title: "Ξεκινά η υποστήριξη",
-    desc: "Η συνεργασία συνεχίζεται με βάση την υπηρεσία και τις ανάγκες σας.",
+    desc: "Η συνεργασία συνεχίζεται με καθαρή επικοινωνία και παρακολούθηση των σχετικών υποχρεώσεων.",
   },
 ];
 
@@ -39,7 +51,7 @@ const stepVariants = {
 
 export default function Process() {
   return (
-    <section id="process" className="section-padding bg-white">
+    <section id="process" className="section-padding bg-white scroll-mt-20">
       <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,18 +60,17 @@ export default function Process() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-xl mx-auto"
         >
-          <h2 className="text-[#111827]">Πώς λειτουργεί η διαδικασία</h2>
+          <h2 className="text-[#111827]">Πώς ξεκινά η συνεργασία</h2>
           <p className="mt-4 text-[#64748B] leading-relaxed">
-            Απλή καταγραφή, καθαρά βήματα και επικοινωνία από το γραφείο.
+            Απλή διαδικασία, καθαρά βήματα και επικοινωνία από το γραφείο.
           </p>
         </motion.div>
 
         {/* Timeline - Desktop Horizontal */}
-        <div className="hidden lg:block mt-14 max-w-5xl mx-auto">
-          {/* Connecting Line */}
+        <div className="hidden lg:block mt-16 max-w-5xl mx-auto">
           <div className="relative flex justify-between items-start px-[40px]">
-            <div className="absolute top-5 left-[40px] right-[40px] h-0.5 bg-[#E5E7EB]" />
-            <div className="absolute top-5 left-[40px] right-[40px] h-0.5 bg-gradient-to-r from-[#B91C1C] to-[#B91C1C]/20" />
+            <div className="absolute top-7 left-[80px] right-[80px] h-0.5 bg-[#E5E7EB]" />
+            <div className="absolute top-7 left-[80px] right-[80px] h-0.5 bg-gradient-to-r from-[#B91C1C] via-[#B91C1C]/60 to-[#E5E7EB]" />
 
             {steps.map((step, i) => (
               <motion.div
@@ -70,20 +81,17 @@ export default function Process() {
                 viewport={{ once: true, margin: "-60px" }}
                 variants={stepVariants}
                 className="relative flex flex-col items-center text-center"
-                style={{ width: 160 }}
+                style={{ width: 170 }}
               >
-                <div
-                  className={`w-10 h-10 rounded-full border-2 flex items-center justify-center text-sm font-semibold bg-white z-10 ${
-                    i <= 2
-                      ? "border-[#B91C1C] text-[#B91C1C] bg-[#FEF2F2]"
-                      : "border-[#E5E7EB] text-[#64748B]"
-                  }`}
-                >
-                  {step.num}
+                <div className="w-14 h-14 rounded-full border-2 border-[#FECACA] bg-[#FEF2F2] flex items-center justify-center z-10 shadow-[0_4px_12px_rgba(185,28,28,0.12)]">
+                  <step.icon size={22} className="text-[#B91C1C]" />
                 </div>
-                <h4 className="mt-4 text-[15px] font-semibold text-[#111827] max-w-[140px]">
+                <span className="mt-3 inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#111827] text-white text-xs font-semibold">
+                  {step.num}
+                </span>
+                <h3 className="mt-3 text-[15px] font-semibold text-[#111827] max-w-[150px]">
                   {step.title}
-                </h4>
+                </h3>
                 <p className="mt-1.5 text-sm text-[#64748B] max-w-[160px] leading-relaxed">
                   {step.desc}
                 </p>
@@ -94,7 +102,7 @@ export default function Process() {
 
         {/* Timeline - Mobile Vertical */}
         <div className="lg:hidden mt-12 max-w-md mx-auto relative">
-          <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-[#E5E7EB]" />
+          <div className="absolute left-7 top-2 bottom-2 w-0.5 bg-[#E5E7EB]" />
           <div className="flex flex-col gap-8">
             {steps.map((step, i) => (
               <motion.div
@@ -104,22 +112,21 @@ export default function Process() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
                 variants={stepVariants}
-                className="relative flex items-start gap-5 pl-1"
+                className="relative flex items-start gap-5"
               >
-                <div
-                  className={`w-10 h-10 rounded-full border-2 flex items-center justify-center text-sm font-semibold bg-white shrink-0 z-10 ${
-                    i <= 2
-                      ? "border-[#B91C1C] text-[#B91C1C] bg-[#FEF2F2]"
-                      : "border-[#E5E7EB] text-[#64748B]"
-                  }`}
-                >
-                  {step.num}
+                <div className="w-14 h-14 rounded-full border-2 border-[#FECACA] bg-[#FEF2F2] flex items-center justify-center shrink-0 z-10">
+                  <step.icon size={22} className="text-[#B91C1C]" />
                 </div>
-                <div>
-                  <h4 className="text-[15px] font-semibold text-[#111827]">
-                    {step.title}
-                  </h4>
-                  <p className="mt-1 text-sm text-[#64748B] leading-relaxed">
+                <div className="pt-1">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#111827] text-white text-[11px] font-semibold">
+                      {step.num}
+                    </span>
+                    <h3 className="text-[15px] font-semibold text-[#111827]">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <p className="mt-1.5 text-sm text-[#64748B] leading-relaxed">
                     {step.desc}
                   </p>
                 </div>

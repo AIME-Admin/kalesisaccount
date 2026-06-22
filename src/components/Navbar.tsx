@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BUSINESS, LOGO_SRC, LOGO_ALT } from "../config";
 
 const navLinks = [
   { label: "Αρχική", href: "#hero" },
-  { label: "Υπηρεσίες", href: "#services" },
   { label: "Φόρμα", href: "#intake" },
+  { label: "Υπηρεσίες", href: "#services" },
   { label: "Βοηθός", href: "#assistant" },
   { label: "Διαδικασία", href: "#process" },
   { label: "FAQ", href: "#faq" },
+  { label: "Επικοινωνία", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -21,7 +23,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     setMenuOpen(false);
     const el = document.querySelector(href);
@@ -36,51 +41,66 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center transition-all duration-300 ${
           scrolled
             ? "bg-white/92 backdrop-blur-xl border-b border-[#E5E7EB] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
-            : "bg-transparent border-b border-transparent"
+            : "bg-white/70 backdrop-blur-md border-b border-transparent"
         }`}
         role="navigation"
         aria-label="Κύρια πλοήγηση"
       >
-        <div className="container-main w-full flex items-center justify-between">
-          {/* Logo */}
+        <div className="container-main w-full flex items-center justify-between gap-4">
+          {/* Logo + brand */}
           <a
             href="#hero"
             onClick={(e) => handleNavClick(e, "#hero")}
-            className="flex items-center gap-3 shrink-0"
-            aria-label="Αρχική σελίδα"
+            className="flex items-center gap-3 shrink-0 group"
+            aria-label="Αρχική σελίδα — Λογιστικό Γραφείο Φιλιππός Καλέσης"
           >
             <img
-              src="/src/assets/logo.png"
-              alt="Λογιστικό Γραφείο Φιλιππός Καλέσης - Λογότυπο"
-              className="w-10 h-10 rounded-full"
+              src={LOGO_SRC}
+              alt={LOGO_ALT}
+              width={40}
+              height={40}
+              className="w-10 h-10 shrink-0"
               loading="eager"
             />
-            <span className="hidden sm:inline font-semibold text-[15px] text-[#111827]">
-              Λογιστικό Γραφείο Φιλιππός Καλέσης
-            </span>
-            <span className="sm:hidden font-semibold text-sm text-[#111827]">
-              Φ. Καλέσης
+            <span className="hidden sm:flex flex-col leading-tight">
+              <span className="text-[12px] font-medium tracking-wide uppercase text-[#64748B]">
+                Λογιστικό Γραφείο
+              </span>
+              <span className="text-[15px] font-semibold text-[#111827]">
+                Φιλιππός Καλέσης
+              </span>
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="px-3 py-2 text-sm text-[#64748B] hover:text-[#111827] rounded-lg transition-colors duration-200"
+                className="px-3 py-2 text-sm text-[#64748B] hover:text-[#111827] rounded-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B91C1C]"
               >
                 {link.label}
               </a>
             ))}
+          </div>
+
+          {/* Right-side CTAs (desktop) */}
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
+            <a
+              href={BUSINESS.phoneHref}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[#111827] hover:text-[#B91C1C] transition-colors px-2"
+            >
+              <Phone size={15} />
+              <span className="font-mono-tabular">{BUSINESS.phoneDisplay}</span>
+            </a>
             <a
               href="#intake"
               onClick={(e) => handleNavClick(e, "#intake")}
-              className="btn-primary text-sm ml-2 !px-5 !py-2.5"
+              className="btn-primary text-sm !px-5 !py-2.5"
             >
-              Φόρμα
+              Συμπληρώστε φόρμα
             </a>
           </div>
 
@@ -104,9 +124,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 pt-[72px] bg-white/97 backdrop-blur-xl"
+            className="fixed inset-0 z-40 pt-[72px] bg-white/97 backdrop-blur-xl lg:hidden"
           >
-            <div className="container-main py-8 flex flex-col gap-2">
+            <div className="container-main py-8 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -118,11 +138,18 @@ export default function Navbar() {
                 </a>
               ))}
               <a
+                href={BUSINESS.phoneHref}
+                className="btn-secondary mt-4 justify-center"
+              >
+                <Phone size={16} />
+                {BUSINESS.phoneDisplay}
+              </a>
+              <a
                 href="#intake"
                 onClick={(e) => handleNavClick(e, "#intake")}
-                className="btn-primary text-center mt-4"
+                className="btn-primary text-center justify-center"
               >
-                Συμπληρώστε φόρμα ενδιαφέροντος
+                Συμπληρώστε φόρμα
               </a>
             </div>
           </motion.div>

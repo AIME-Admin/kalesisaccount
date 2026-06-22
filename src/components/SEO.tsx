@@ -1,125 +1,114 @@
 import { useEffect } from "react";
+import { SITE_URL, CANONICAL_URL, OG_IMAGE_URL, BUSINESS } from "../config";
+import { services } from "../data/services";
+import { faqs } from "../data/faqs";
 
-const jsonLdLocalBusiness = {
+const jsonLdAccountingService = {
   "@context": "https://schema.org",
   "@type": "AccountingService",
-  name: "Λογιστικό Γραφείο Φιλιππός Καλέσης",
-  telephone: "+306980144612",
-  email: "kalesisacc@gmail.com",
-  url: "https://kalesis-accounting.gr",
-  areaServed: "Ελλάδα",
+  "@id": `${SITE_URL}/#business`,
+  name: BUSINESS.name,
+  description:
+    "Λογιστική και φοροτεχνική υποστήριξη για επιχειρήσεις, ελεύθερους επαγγελματίες και ιδιώτες.",
+  telephone: BUSINESS.phoneIntl,
+  email: BUSINESS.email,
+  url: CANONICAL_URL,
+  image: OG_IMAGE_URL,
+  areaServed: BUSINESS.areaServed,
+  priceRange: "€€",
   sameAs: [],
   address: {
     "@type": "PostalAddress",
     addressLocality: "[ΠΕΡΙΟΧΗ]",
     addressCountry: "GR",
   },
+  founder: {
+    "@type": "Person",
+    name: BUSINESS.person,
+    jobTitle: BUSINESS.jobTitle,
+  },
+  serviceType: services.map((s) => s.title),
 };
 
 const jsonLdPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Φιλιππός Καλέσης",
-  jobTitle: "Λογιστής / Φοροτεχνικός",
+  "@id": `${SITE_URL}/#person`,
+  name: BUSINESS.person,
+  jobTitle: BUSINESS.jobTitle,
   worksFor: {
     "@type": "Organization",
-    name: "Λογιστικό Γραφείο Φιλιππός Καλέσης",
+    name: BUSINESS.name,
   },
-  email: "kalesisacc@gmail.com",
-  telephone: "+306980144612",
+  email: BUSINESS.email,
+  telephone: BUSINESS.phoneIntl,
+  url: CANONICAL_URL,
+};
+
+const jsonLdWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: BUSINESS.name,
+  url: CANONICAL_URL,
+  inLanguage: "el-GR",
+  description:
+    "Λογιστικό γραφείο για επιχειρήσεις, ελεύθερους επαγγελματίες και ιδιώτες.",
+  publisher: { "@id": `${SITE_URL}/#business` },
+};
+
+const jsonLdWebPage = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}/#webpage`,
+  name: "Λογιστικό Γραφείο Φιλιππός Καλέσης | Λογιστής - Φοροτεχνικός Α’ Τάξης",
+  url: CANONICAL_URL,
+  inLanguage: "el-GR",
+  description:
+    "Λογιστική υποστήριξη επιχειρήσεων, έναρξη δραστηριότητας, myDATA, μισθοδοσία και φορολογικές δηλώσεις.",
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#business` },
 };
 
 const jsonLdFAQ = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Ποιες υπηρεσίες προσφέρει το λογιστικό γραφείο;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Το γραφείο προσφέρει φορολογικές δηλώσεις, λογιστική υποστήριξη επιχειρήσεων, μισθοδοσία, έναρξη επιχείρησης, υποστήριξη σε myDATA και φοροτεχνική καθοδήγηση για ιδιώτες και επαγγελματίες.",
-      },
+  "@id": `${SITE_URL}/#faq`,
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.answer,
     },
-    {
-      "@type": "Question",
-      name: "Γιατί να συμπληρώσω τη φόρμα ενδιαφέροντος;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Η φόρμα βοηθά το γραφείο να καταγράψει από την αρχή τα βασικά στοιχεία, την υπηρεσία που σας ενδιαφέρει και τυχόν προθεσμία. Έτσι η πρώτη επικοινωνία μπορεί να γίνει πιο οργανωμένα.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Μπορώ να στείλω τα στοιχεία μου ηλεκτρονικά;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ναι, μπορείτε να ξεκινήσετε με τη φόρμα ενδιαφέροντος ή με email. Για συγκεκριμένα έγγραφα, το γραφείο θα σας καθοδηγήσει σχετικά με τον κατάλληλο τρόπο αποστολής.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Αναλαμβάνετε νέες επιχειρήσεις;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ναι, υπάρχει δυνατότητα υποστήριξης για έναρξη δραστηριότητας και αρχική λογιστική οργάνωση, ανάλογα με τις ανάγκες της περίπτωσης.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Παρέχετε υπηρεσίες μισθοδοσίας;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Ναι, το γραφείο μπορεί να υποστηρίξει επιχειρήσεις σε βασικές διαδικασίες μισθοδοσίας και εργασιακών θεμάτων.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Ο ψηφιακός βοηθός δίνει φορολογική συμβουλή;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Όχι. Ο ψηφιακός βοηθός παρέχει μόνο γενικές πληροφορίες για τις υπηρεσίες και τη διαδικασία συνεργασίας. Δεν αντικαθιστά εξατομικευμένη λογιστική ή φορολογική καθοδήγηση.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Πώς μπορώ να κλείσω ραντεβού;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Μπορείτε να καλέσετε στο +30 698 014 4612, να στείλετε email στο kalesisacc@gmail.com ή να συμπληρώσετε τη φόρμα ενδιαφέροντος.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Τα στοιχεία που στέλνω χρησιμοποιούνται για κάτι άλλο;",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Τα στοιχεία χρησιμοποιούνται αποκλειστικά για την επικοινωνία σχετικά με το αίτημά σας και την αξιολόγηση της ανάγκης σας από το γραφείο.",
-      },
-    },
-  ],
+  })),
 };
 
 export default function SEO() {
   useEffect(() => {
-    const schemas = [jsonLdLocalBusiness, jsonLdPerson, jsonLdFAQ];
-    const scriptIds = ["schema-localbusiness", "schema-person", "schema-faq"];
+    const schemas = [
+      { id: "schema-accounting", data: jsonLdAccountingService },
+      { id: "schema-person", data: jsonLdPerson },
+      { id: "schema-website", data: jsonLdWebSite },
+      { id: "schema-webpage", data: jsonLdWebPage },
+      { id: "schema-faq", data: jsonLdFAQ },
+    ];
 
-    schemas.forEach((schema, i) => {
-      let script = document.getElementById(scriptIds[i]) as HTMLScriptElement | null;
+    schemas.forEach(({ id, data }) => {
+      let script = document.getElementById(id) as HTMLScriptElement | null;
       if (!script) {
         script = document.createElement("script");
-        script.id = scriptIds[i];
+        script.id = id;
         script.type = "application/ld+json";
         document.head.appendChild(script);
       }
-      script.textContent = JSON.stringify(schema);
+      script.textContent = JSON.stringify(data);
     });
 
     return () => {
-      scriptIds.forEach((id) => {
+      schemas.forEach(({ id }) => {
         const el = document.getElementById(id);
-        if (el) document.head.removeChild(el);
+        if (el) el.remove();
       });
     };
   }, []);

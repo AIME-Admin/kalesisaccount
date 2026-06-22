@@ -11,17 +11,21 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="section-padding bg-white">
+    <section id="faq" className="section-padding bg-white scroll-mt-20">
       <div className="container-main max-w-3xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center text-[#111827] mb-10"
+          className="text-center mb-10"
         >
-          Συχνές ερωτήσεις
-        </motion.h2>
+          <h2 className="text-[#111827]">Συχνές ερωτήσεις</h2>
+          <p className="mt-4 text-[#64748B] leading-relaxed max-w-2xl mx-auto">
+            Απαντήσεις σε βασικές ερωτήσεις για τις υπηρεσίες, τη φόρμα
+            ενδιαφέροντος και τον τρόπο συνεργασίας με το γραφείο.
+          </p>
+        </motion.div>
 
         <div className="flex flex-col gap-3">
           {faqs.map((faq, i) => {

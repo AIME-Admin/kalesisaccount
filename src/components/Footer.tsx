@@ -1,20 +1,17 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { BUSINESS, LOGO_SRC, LOGO_ALT } from "../config";
 
 const quickLinks = [
   { label: "Αρχική", href: "#hero" },
-  { label: "Υπηρεσίες", href: "#services" },
   { label: "Φόρμα", href: "#intake" },
+  { label: "Υπηρεσίες", href: "#services" },
   { label: "Βοηθός", href: "#assistant" },
   { label: "Διαδικασία", href: "#process" },
   { label: "FAQ", href: "#faq" },
   { label: "Επικοινωνία", href: "#contact" },
 ];
 
-const legalLinks = [
-  "Πολιτική Απορρήτου",
-  "Πολιτική Cookies",
-  "Όροι Χρήσης",
-];
+const legalLinks = ["Πολιτική Απορρήτου", "Πολιτική Cookies", "Όροι Χρήσης"];
 
 export default function Footer() {
   const handleNavClick = (
@@ -29,41 +26,46 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-[#172033] text-white">
+    <footer id="contact" className="bg-[#172033] text-white scroll-mt-20">
       <div className="container-main pt-16 pb-8">
-        {/* Top Area */}
         <div className="flex flex-col lg:flex-row justify-between gap-12">
-          {/* Left: Brand + Contact */}
+          {/* Brand + contact */}
           <div className="max-w-sm">
             <div className="flex items-center gap-3">
-              <img
-                src="/src/assets/logo.png"
-                alt="Λογιστικό Γραφείο Φιλιππός Καλέσης - Λογότυπο"
-                className="w-10 h-10 rounded-full"
-                loading="lazy"
-              />
+              <span className="w-11 h-11 rounded-full bg-white flex items-center justify-center shrink-0">
+                <img
+                  src={LOGO_SRC}
+                  alt={LOGO_ALT}
+                  width={30}
+                  height={30}
+                  className="w-[30px] h-[30px]"
+                  loading="lazy"
+                />
+              </span>
               <div>
-                <p className="font-semibold text-white">
-                  Λογιστικό Γραφείο Φιλιππός Καλέσης
-                </p>
-                <p className="text-sm text-[#94A3B8]">Φιλιππός Καλέσης</p>
+                <p className="font-semibold text-white">{BUSINESS.name}</p>
+                <p className="text-sm text-[#94A3B8]">{BUSINESS.person}</p>
               </div>
             </div>
 
+            <p className="mt-3 text-sm text-[#94A3B8]">{BUSINESS.jobTitle}</p>
+
             <div className="mt-6 flex flex-col gap-2.5">
               <a
-                href="tel:+306980144612"
+                href={BUSINESS.phoneHref}
                 className="flex items-center gap-2.5 text-sm text-[#94A3B8] hover:text-white transition-colors"
               >
                 <Phone size={14} />
-                <span className="font-mono-tabular">+30 698 014 4612</span>
+                <span className="font-mono-tabular">
+                  {BUSINESS.phoneDisplay}
+                </span>
               </a>
               <a
-                href="mailto:kalesisacc@gmail.com"
+                href={BUSINESS.emailHref}
                 className="flex items-center gap-2.5 text-sm text-[#94A3B8] hover:text-white transition-colors"
               >
                 <Mail size={14} />
-                <span>kalesisacc@gmail.com</span>
+                <span>{BUSINESS.email}</span>
               </a>
               <div className="flex items-center gap-2.5 text-sm text-[#64748B]">
                 <MapPin size={14} />
@@ -76,12 +78,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right: Links */}
+          {/* Links */}
           <div className="flex flex-wrap gap-12 lg:gap-16">
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-4">
+            <nav aria-label="Σύνδεσμοι footer">
+              <h3 className="text-sm font-semibold text-white mb-4">
                 Σύνδεσμοι
-              </h4>
+              </h3>
               <div className="flex flex-col gap-2.5">
                 {quickLinks.map((link) => (
                   <a
@@ -94,9 +96,9 @@ export default function Footer() {
                   </a>
                 ))}
               </div>
-            </div>
+            </nav>
             <div>
-              <h4 className="text-sm font-semibold text-white mb-4">Νομικά</h4>
+              <h3 className="text-sm font-semibold text-white mb-4">Νομικά</h3>
               <div className="flex flex-col gap-2.5">
                 {legalLinks.map((label) => (
                   <span
@@ -111,18 +113,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="h-px bg-white/[0.08] my-8" />
 
-        {/* Bottom */}
         <div>
-          <p className="text-xs text-[#64748B] max-w-2xl leading-relaxed">
+          <p className="text-xs text-[#64748B] max-w-3xl leading-relaxed">
             Οι πληροφορίες του website και του ψηφιακού βοηθού είναι γενικής
             ενημέρωσης και δεν αντικαθιστούν εξατομικευμένη λογιστική ή
-            φορολογική συμβουλή.
+            φορολογική συμβουλή. Μη στέλνετε κωδικούς πρόσβασης μέσω φόρμας ή
+            email.
           </p>
           <p className="text-xs text-[#64748B] mt-2">
-            © 2026 Λογιστικό Γραφείο Φιλιππός Καλέσης. Με επιφύλαξη παντός
+            © {new Date().getFullYear()} {BUSINESS.name}. Με επιφύλαξη παντός
             δικαιώματος.
           </p>
         </div>

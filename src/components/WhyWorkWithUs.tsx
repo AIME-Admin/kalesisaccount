@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, ClipboardList, Clock, Users } from "lucide-react";
+import { MessageSquare, FolderKanban, CalendarCheck, Users } from "lucide-react";
 
 const cards = [
   {
-    icon: ShieldCheck,
+    icon: MessageSquare,
     title: "Καθαρή επικοινωνία",
     text: "Ενημέρωση σε απλή γλώσσα για τις υποχρεώσεις και τα επόμενα βήματα.",
   },
   {
-    icon: ClipboardList,
-    title: "Οργανωμένη καταγραφή",
-    text: "Το αίτημά σας καταγράφεται με δομημένο τρόπο, ώστε να είναι πιο εύκολη η αξιολόγηση.",
+    icon: FolderKanban,
+    title: "Οργάνωση στοιχείων",
+    text: "Συγκέντρωση και παρακολούθηση βασικών πληροφοριών με δομημένο τρόπο.",
   },
   {
-    icon: Clock,
+    icon: CalendarCheck,
     title: "Συνέπεια στις προθεσμίες",
     text: "Υποστήριξη για φορολογικές και λογιστικές υποχρεώσεις με προσοχή στις ημερομηνίες.",
   },
@@ -25,7 +25,7 @@ const cards = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 28 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
@@ -33,19 +33,26 @@ const cardVariants = {
   }),
 };
 
-export default function TrustStrip() {
+export default function WhyWorkWithUs() {
   return (
     <section className="section-padding bg-[#F8FAFC] border-y border-[#E5E7EB]">
       <div className="container-main">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-2xl mx-auto text-[#111827]"
+          className="text-center max-w-2xl mx-auto"
         >
-          Λογιστική υποστήριξη με καθαρότητα, οργάνωση και σωστή επικοινωνία
-        </motion.h2>
+          <h2 className="text-[#111827]">
+            Γιατί να συνεργαστείτε με το γραφείο
+          </h2>
+          <p className="mt-4 text-[#64748B] leading-relaxed">
+            Η σωστή λογιστική συνεργασία δεν είναι μόνο η υποβολή δηλώσεων. Είναι
+            η καθαρή επικοινωνία, η οργάνωση και η υπεύθυνη παρακολούθηση των
+            υποχρεώσεων.
+          </p>
+        </motion.div>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
           {cards.map((card, i) => (

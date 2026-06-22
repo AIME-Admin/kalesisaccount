@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# Local env (do not commit secrets / form URLs)
+.env
+.env.*
+!.env.example
+
+# Machine-specific preview config
+.claude/launch.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,14 +1,12 @@
 import SEO from "./components/SEO";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import TrustStrip from "./components/TrustStrip";
-import ProblemSection from "./components/ProblemSection";
-import Services from "./components/Services";
 import SmartIntake from "./components/SmartIntake";
+import Services from "./components/Services";
 import FAQAssistant from "./components/FAQAssistant";
-import About from "./components/About";
 import Process from "./components/Process";
-import DigitalConvenience from "./components/DigitalConvenience";
+import WhyWorkWithUs from "./components/WhyWorkWithUs";
+import About from "./components/About";
 import FAQ from "./components/FAQ";
 import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
@@ -20,14 +18,12 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <TrustStrip />
-        <ProblemSection />
-        <Services />
         <SmartIntake />
+        <Services />
         <FAQAssistant />
-        <About />
         <Process />
-        <DigitalConvenience />
+        <WhyWorkWithUs />
+        <About />
         <FAQ />
         <FinalCTA />
       </main>

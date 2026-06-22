@@ -31,8 +31,8 @@ is required for the site to build — sensible placeholders are used until set.
 | `VITE_GA_ID` | Google Analytics 4 id (`G-XXXX`). Loads GA only when set. |
 | `VITE_GTM_ID` | Google Tag Manager id (`GTM-XXXX`). Loads GTM only when set. |
 
-The default domain in `index.html` (canonical / OG) is `kalesis-accounting.gr` —
-change it there and via `VITE_SITE_URL` on the final domain.
+The production domain is `filipposkalesis.gr` (set in `index.html` for
+canonical / OG, in `src/config.ts`, and in `VITE_SITE_URL`).
 
 ## Brand assets
 

@@ -2,7 +2,7 @@
 // Final-domain placeholder: override with VITE_SITE_URL at build time.
 const rawSiteUrl =
   (import.meta.env.VITE_SITE_URL as string | undefined) ||
-  "https://kalesis-accounting.gr";
+  "https://filipposkalesis.gr";
 
 // Normalise to no trailing slash for joins, keep a "/" canonical helper.
 export const SITE_URL = rawSiteUrl.replace(/\/+$/, "");

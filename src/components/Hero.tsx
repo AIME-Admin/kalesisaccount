@@ -22,7 +22,7 @@ const trustBadges = [
 const previewRows = [
   { icon: Building2, label: "Τύπος πελάτη", value: "Επιχείρηση" },
   { icon: FileText, label: "Υπηρεσία", value: "Λογιστική υποστήριξη" },
-  { icon: MessageCircle, label: "Επόμενο βήμα", value: "Επικοινωνία από το γραφείο" },
+  { icon: MessageCircle, label: "Επόμενο βήμα", value: "Επικοινωνία μαζί σας" },
 ];
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -66,9 +66,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35, ease: easeOut }}
             className="mt-5 max-w-xl mx-auto lg:mx-0 text-lg text-[#64748B] leading-relaxed"
           >
-            Ο Φίλιππος Καλέσης, {BUSINESS.jobTitle}, υποστηρίζει επιχειρήσεις,
-            επαγγελματίες και ιδιώτες με καθαρή επικοινωνία, δομημένη καταγραφή
-            αιτήματος και υπεύθυνη καθοδήγηση.
+            Υποστηρίζουμε επιχειρήσεις, επαγγελματίες και ιδιώτες με καθαρή
+            επικοινωνία, δομημένη καταγραφή αιτήματος και υπεύθυνη φοροτεχνική
+            καθοδήγηση.
           </motion.p>
 
           <motion.div
@@ -150,7 +150,7 @@ export default function Hero() {
               <div className="flex items-center gap-2 mt-1 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] px-4 py-3">
                 <CheckCircle2 size={17} className="text-[#16A34A] shrink-0" />
                 <span className="text-sm font-medium text-[#15803D]">
-                  Έτοιμο για αποστολή στο γραφείο
+                  Έτοιμο για αποστολή
                 </span>
               </div>
             </div>

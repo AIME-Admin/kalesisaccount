@@ -19,7 +19,7 @@ export default function FinalCTA() {
           </h2>
           <p className="mt-4 text-[#64748B] leading-relaxed max-w-xl mx-auto">
             Συμπληρώστε τη φόρμα ενδιαφέροντος ή επικοινωνήστε απευθείας με τον
-            Φίλιππο Καλέση για να συζητήσετε την ανάγκη σας και τα επόμενα βήματα.
+            Φίλιππο για να συζητήσουμε την ανάγκη σας και τα επόμενα βήματα.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

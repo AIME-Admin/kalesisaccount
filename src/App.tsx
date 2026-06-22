@@ -1,34 +1,26 @@
-import SEO from "./components/SEO";
+import { Routes, Route, Navigate } from "react-router";
 import Analytics from "./components/Analytics";
+import ScrollManager from "./components/ScrollManager";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import SmartIntake from "./components/SmartIntake";
-import Services from "./components/Services";
-import FAQAssistant from "./components/FAQAssistant";
-import Process from "./components/Process";
-import WhyWorkWithUs from "./components/WhyWorkWithUs";
-import About from "./components/About";
-import FAQ from "./components/FAQ";
-import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
+import TermsOfUse from "./pages/TermsOfUse";
 
 export default function App() {
   return (
     <>
-      <SEO />
       <Analytics />
+      <ScrollManager />
       <Navbar />
-      <main>
-        <Hero />
-        <SmartIntake />
-        <Services />
-        <FAQAssistant />
-        <Process />
-        <WhyWorkWithUs />
-        <About />
-        <FAQ />
-        <FinalCTA />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/cookies" element={<CookiePolicy />} />
+        <Route path="/terms" element={<TermsOfUse />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
       <Footer />
     </>
   );

@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { BUSINESS, LOGO_SRC, LOGO_ALT } from "../config";
 
 const quickLinks = [
@@ -11,17 +12,25 @@ const quickLinks = [
   { label: "Επικοινωνία", href: "#contact" },
 ];
 
-const legalLinks = ["Πολιτική Απορρήτου", "Πολιτική Cookies", "Όροι Χρήσης"];
+const legalLinks = [
+  { label: "Πολιτική Απορρήτου", to: "/privacy" },
+  { label: "Πολιτική Cookies", to: "/cookies" },
+  { label: "Όροι Χρήσης", to: "/terms" },
+];
 
 export default function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     e.preventDefault();
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname === "/") {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/${href}`);
     }
   };
 
@@ -105,13 +114,14 @@ export default function Footer() {
             <div>
               <h3 className="text-sm font-semibold text-white mb-4">Νομικά</h3>
               <div className="flex flex-col gap-2.5">
-                {legalLinks.map((label) => (
-                  <span
-                    key={label}
-                    className="text-sm text-[#64748B] cursor-default"
+                {legalLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className="text-sm text-[#94A3B8] hover:text-white transition-colors"
                   >
-                    {label}
-                  </span>
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             </div>

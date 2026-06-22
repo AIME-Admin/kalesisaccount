@@ -46,11 +46,20 @@ node scripts/gen-assets.mjs   # needs: npm i --no-save sharp
 Outputs: `public/logo.png` (used everywhere), `favicon.png`,
 `apple-touch-icon.png`, `og-image.png` (1200×630).
 
+## Routing
+
+Client-side routing (react-router): `/` (home), `/privacy`, `/cookies`,
+`/terms`. Static hosts must serve `index.html` for unknown paths (SPA
+fallback). `public/_redirects` covers Netlify / Cloudflare Pages. For other
+hosts: Vercel → add a rewrite to `/index.html`; Apache → `.htaccess` fallback;
+Nginx → `try_files $uri /index.html`.
+
 ## Pending client input (placeholders in code)
 
 - `[ΩΡΕΣ ΛΕΙΤΟΥΡΓΙΑΣ]` — opening hours (footer).
 - Google Form URLs (intake) — set in `.env`.
-- Footer legal links (Privacy / Cookies / Terms) — need real legal text.
+- Legal pages — content is in place; recommend a final review by the client /
+  a lawyer before launch.
 
-Done: production domain (`filipposkalesis.gr`) and business address
-(Γοργοποτάμου 10-12, Αχαρνές 13671) are wired in `src/config.ts`.
+Done: production domain (`filipposkalesis.gr`), business address
+(Γοργοποτάμου 10-12, Αχαρνές 13671), and Privacy / Cookies / Terms pages.

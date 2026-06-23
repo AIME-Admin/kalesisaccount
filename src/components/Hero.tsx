@@ -210,15 +210,17 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Footer link */}
-            <a
-              href="#assistant"
-              onClick={(e) => scrollToId(e, "assistant")}
-              className="flex items-center justify-center gap-1.5 border-t border-[#F1F5F9] px-5 py-3 text-sm font-medium text-[#B91C1C] hover:bg-[#FEF2F2] transition-colors"
+            {/* Footer link — opens the assistant popup */}
+            <button
+              type="button"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-assistant"))
+              }
+              className="w-full flex items-center justify-center gap-1.5 border-t border-[#F1F5F9] px-5 py-3 text-sm font-medium text-[#B91C1C] hover:bg-[#FEF2F2] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B91C1C]"
             >
               <CornerDownRight size={15} />
               Δείτε όλες τις ερωτήσεις του βοηθού
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>

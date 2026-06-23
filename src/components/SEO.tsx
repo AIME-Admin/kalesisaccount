@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { SITE_URL, CANONICAL_URL, OG_IMAGE_URL, BUSINESS } from "../config";
 import { services } from "../data/services";
-import { faqs } from "../data/faqs";
+import { assistantQuestions } from "../data/assistantQuestions";
 
 const jsonLdAccountingService = {
   "@context": "https://schema.org",
@@ -78,12 +78,12 @@ const jsonLdFAQ = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": `${SITE_URL}/#faq`,
-  mainEntity: faqs.map((f) => ({
+  mainEntity: assistantQuestions.map((qa) => ({
     "@type": "Question",
-    name: f.question,
+    name: qa.question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: f.answer,
+      text: qa.answer,
     },
   })),
 };

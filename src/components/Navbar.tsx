@@ -8,9 +8,7 @@ const navLinks = [
   { label: "Αρχική", href: "#hero" },
   { label: "Φόρμα", href: "#intake" },
   { label: "Υπηρεσίες", href: "#services" },
-  { label: "Βοηθός", href: "#assistant" },
   { label: "Διαδικασία", href: "#process" },
-  { label: "FAQ", href: "#faq" },
   { label: "Επικοινωνία", href: "#contact" },
 ];
 

@@ -4,7 +4,10 @@ import { BUSINESS } from "../config";
 
 export default function FinalCTA() {
   return (
-    <section className="section-padding bg-gradient-to-br from-[#FEF2F2] via-white to-[#FBFAF8]">
+    <section
+      id="final-cta"
+      className="section-padding bg-gradient-to-br from-[#FEF2F2] via-white to-[#FBFAF8]"
+    >
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}

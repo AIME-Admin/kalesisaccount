@@ -2,12 +2,11 @@ import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import SmartIntake from "../components/SmartIntake";
 import Services from "../components/Services";
-import FAQAssistant from "../components/FAQAssistant";
 import Process from "../components/Process";
 import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import About from "../components/About";
-import FAQ from "../components/FAQ";
 import FinalCTA from "../components/FinalCTA";
+import AssistantPopup from "../components/AssistantPopup";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 export default function Home() {
@@ -26,13 +25,12 @@ export default function Home() {
         <Hero />
         <SmartIntake />
         <Services />
-        <FAQAssistant />
         <Process />
         <WhyWorkWithUs />
         <About />
-        <FAQ />
         <FinalCTA />
       </main>
+      <AssistantPopup />
     </>
   );
 }

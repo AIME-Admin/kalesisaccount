@@ -51,9 +51,101 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Core structured data (static, present in the initial HTML) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "AccountingService",
+            "@id": "https://filipposkalesis.gr/#business",
+            "name": "Λογιστικό Γραφείο Φίλιππος Καλέσης",
+            "description": "Λογιστική και φοροτεχνική υποστήριξη για επιχειρήσεις, ελεύθερους επαγγελματίες και ιδιώτες στις Αχαρνές και σε όλη την Ελλάδα.",
+            "url": "https://filipposkalesis.gr/",
+            "telephone": "+306980144612",
+            "email": "kalesisacc@gmail.com",
+            "logo": "https://filipposkalesis.gr/logo.png",
+            "image": "https://filipposkalesis.gr/og-image.png",
+            "priceRange": "€€",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Γοργοποτάμου 10-12",
+              "addressLocality": "Αχαρνές",
+              "postalCode": "13671",
+              "addressRegion": "Αττική",
+              "addressCountry": "GR"
+            },
+            "areaServed": ["Αχαρνές", "Αττική", "Ελλάδα"],
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "17:00"
+            },
+            "founder": {
+              "@id": "https://filipposkalesis.gr/#person"
+            },
+            "serviceType": [
+              "Λογιστική Υποστήριξη Επιχειρήσεων",
+              "Έναρξη Ατομικών Επιχειρήσεων & Νομικών Προσώπων",
+              "myDATA & Ηλεκτρονική Τιμολόγηση",
+              "Μισθοδοσία & Εργασιακά",
+              "Φοροτεχνική Καθοδήγηση",
+              "Υποστήριξη Ελεύθερων Επαγγελματιών",
+              "Υποστήριξη Ιδιωτών",
+              "Φορολογικές Δηλώσεις"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Υπηρεσίες λογιστικής και φοροτεχνικής υποστήριξης",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Λογιστική Υποστήριξη Επιχειρήσεων" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Έναρξη Ατομικών Επιχειρήσεων & Νομικών Προσώπων" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "myDATA & Ηλεκτρονική Τιμολόγηση" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Μισθοδοσία & Εργασιακά" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Φοροτεχνική Καθοδήγηση" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Υποστήριξη Ελεύθερων Επαγγελματιών" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Υποστήριξη Ιδιωτών" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Φορολογικές Δηλώσεις" } }
+              ]
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://filipposkalesis.gr/#person",
+            "name": "Φίλιππος Καλέσης",
+            "jobTitle": "Λογιστής - Φοροτεχνικός Α’ Τάξης",
+            "worksFor": { "@id": "https://filipposkalesis.gr/#business" },
+            "email": "kalesisacc@gmail.com",
+            "telephone": "+306980144612",
+            "url": "https://filipposkalesis.gr/"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://filipposkalesis.gr/#website",
+            "name": "Λογιστικό Γραφείο Φίλιππος Καλέσης",
+            "url": "https://filipposkalesis.gr/",
+            "inLanguage": "el-GR",
+            "description": "Λογιστικό γραφείο για επιχειρήσεις, ελεύθερους επαγγελματίες και ιδιώτες.",
+            "publisher": { "@id": "https://filipposkalesis.gr/#business" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://filipposkalesis.gr/#webpage",
+            "name": "Λογιστικό Γραφείο Φίλιππος Καλέσης | Λογιστής - Φοροτεχνικός Α’ Τάξης",
+            "url": "https://filipposkalesis.gr/",
+            "inLanguage": "el-GR",
+            "description": "Λογιστική υποστήριξη επιχειρήσεων, έναρξη δραστηριότητας, myDATA, μισθοδοσία και φορολογικές δηλώσεις στις Αχαρνές.",
+            "isPartOf": { "@id": "https://filipposkalesis.gr/#website" },
+            "about": { "@id": "https://filipposkalesis.gr/#business" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

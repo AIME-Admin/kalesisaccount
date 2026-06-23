@@ -111,7 +111,7 @@ export default function AssistantSection() {
                     <MessageSquare
                       size={15}
                       className={`shrink-0 ${
-                        isActive ? "text-white" : "text-[#64748B]"
+                        isActive ? "text-white" : "text-[#94A3B8]"
                       }`}
                     />
                     <span>{qa.question}</span>
@@ -168,7 +168,7 @@ export default function AssistantSection() {
 
           {/* Disclaimer */}
           <div className="border-t border-white/[0.08] px-5 py-3.5">
-            <p className="text-xs text-[#64748B] leading-relaxed">
+            <p className="text-xs text-[#94A3B8] leading-relaxed">
               Οι απαντήσεις είναι γενικής ενημέρωσης και δεν αποτελούν
               εξατομικευμένη φορολογική, λογιστική ή νομική συμβουλή.
             </p>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ClipboardList,
@@ -42,6 +43,20 @@ const benefits = [
 ];
 
 export default function SmartIntake() {
+  // On mobile the embedded form is heavy, so we load it only on tap.
+  const [isMobile, setIsMobile] = useState(false);
+  const [showEmbed, setShowEmbed] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 640px)");
+    const update = () => setIsMobile(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+
+  const embedVisible = HAS_FORM_EMBED && (!isMobile || showEmbed);
+
   return (
     <section id="intake" className="section-padding bg-white scroll-mt-20">
       <div className="container-main">
@@ -106,15 +121,6 @@ export default function SmartIntake() {
               </div>
             </div>
 
-            {/* Safety note */}
-            <div className="mt-6 flex items-start gap-3 rounded-xl bg-[#FEF2F2] border border-[#FECACA] px-4 py-4">
-              <ShieldAlert size={20} className="text-[#B91C1C] shrink-0 mt-0.5" />
-              <p className="text-sm text-[#7F1D1D] leading-relaxed">
-                Μη στέλνετε κωδικούς Taxisnet, τραπεζικούς κωδικούς ή ευαίσθητα
-                στοιχεία μέσω της φόρμας. Για εξατομικευμένη καθοδήγηση, θα
-                επικοινωνήσουμε μαζί σας.
-              </p>
-            </div>
           </motion.div>
 
           {/* Right Column: Form Card */}
@@ -136,36 +142,60 @@ export default function SmartIntake() {
                   Φόρμα ενδιαφέροντος
                 </h3>
               </div>
-              <p className="text-sm text-[#64748B] mb-6">
+              <p className="text-sm text-[#64748B] mb-5">
                 Συμπληρώστε τα στοιχεία σας και θα επικοινωνήσουμε μαζί σας.
               </p>
 
+              {/* Primary direct button — always visible, above the embed */}
+              {HAS_FORM_PUBLIC && (
+                <a
+                  href={GOOGLE_FORM_PUBLIC_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full justify-center text-sm"
+                >
+                  Άνοιγμα φόρμας σε νέο παράθυρο
+                  <ExternalLink size={15} />
+                </a>
+              )}
+
+              {/* Embedded form: direct on desktop/tablet, tap-to-load on mobile.
+                  Height is responsive per breakpoint because a cross-origin
+                  Google Form can't report its own height. */}
               {HAS_FORM_EMBED ? (
-                <div className="rounded-xl overflow-hidden border border-[#E5E7EB]">
-                  {/*
-                    Width is fluid (100%). Height is responsive per breakpoint
-                    because a cross-origin Google Form can't report its own
-                    height: it reflows TALLER on narrow screens (single column,
-                    ~340px wide) and shorter on the wide tablet width, then a bit
-                    taller again in the desktop two-column layout (~450px column).
-                    Tune these px if needed after checking on a real device.
-                  */}
-                  <iframe
-                    src={GOOGLE_FORM_EMBED_URL}
-                    width="100%"
-                    height={2350}
-                    frameBorder={0}
-                    marginHeight={0}
-                    marginWidth={0}
-                    loading="lazy"
-                    title="Φόρμα Ενδιαφέροντος"
-                    className="block w-full h-[2700px] sm:h-[2050px] lg:h-[2350px]"
-                  >
-                    Φόρτωση…
-                  </iframe>
-                </div>
+                embedVisible ? (
+                  <div className="mt-5 rounded-xl overflow-hidden border border-[#E5E7EB]">
+                    <iframe
+                      src={GOOGLE_FORM_EMBED_URL}
+                      width="100%"
+                      height={2350}
+                      frameBorder={0}
+                      marginHeight={0}
+                      marginWidth={0}
+                      loading="lazy"
+                      title="Φόρμα Ενδιαφέροντος"
+                      className="block w-full h-[2700px] sm:h-[2050px] lg:h-[2350px]"
+                    >
+                      Φόρτωση…
+                    </iframe>
+                  </div>
+                ) : (
+                  <div className="mt-4 text-center">
+                    <button
+                      type="button"
+                      onClick={() => setShowEmbed(true)}
+                      className="btn-secondary w-full justify-center text-sm"
+                    >
+                      Εμφάνιση φόρμας στη σελίδα
+                    </button>
+                    <p className="mt-2 text-xs text-[#64748B]">
+                      Στο κινητό η φόρμα ανοίγει με το πάτημα, για ταχύτερη
+                      φόρτωση.
+                    </p>
+                  </div>
+                )
               ) : (
-                <div className="bg-[#F8FAFC] border-2 border-dashed border-[#E5E7EB] rounded-xl min-h-[420px] flex flex-col items-center justify-center text-center px-6 py-10">
+                <div className="mt-5 bg-[#F8FAFC] border-2 border-dashed border-[#E5E7EB] rounded-xl min-h-[300px] flex flex-col items-center justify-center text-center px-6 py-10">
                   <ClipboardList size={44} className="text-[#CBD5E1] mb-4" />
                   <p className="text-[#64748B] text-sm max-w-[300px] leading-relaxed">
                     Το έντυπο ενδιαφέροντος θα συνδεθεί εδώ μόλις δημιουργηθεί το
@@ -174,25 +204,19 @@ export default function SmartIntake() {
                 </div>
               )}
 
-              {/* Fallback / open in new window */}
-              <a
-                href={HAS_FORM_PUBLIC ? GOOGLE_FORM_PUBLIC_URL : "#intake"}
-                className={`btn-secondary w-full justify-center mt-5 text-sm ${
-                  HAS_FORM_PUBLIC ? "" : "opacity-50 pointer-events-none"
-                }`}
-                {...(HAS_FORM_PUBLIC
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : { "aria-disabled": true })}
-              >
-                Άνοιγμα φόρμας σε νέο παράθυρο
-                <ExternalLink size={15} />
-              </a>
+              {/* Helper / security note */}
+              <div className="mt-5 flex items-start gap-2.5 rounded-xl bg-[#FEF2F2] border border-[#FECACA] px-4 py-3.5">
+                <ShieldAlert
+                  size={18}
+                  className="text-[#B91C1C] shrink-0 mt-0.5"
+                />
+                <p className="text-xs text-[#7F1D1D] leading-relaxed">
+                  Μετά την υποβολή, το γραφείο ελέγχει το αίτημά σας και
+                  επικοινωνεί μαζί σας για τα επόμενα βήματα. Μη στέλνετε κωδικούς
+                  Taxisnet, τραπεζικούς κωδικούς ή passwords μέσω φόρμας.
+                </p>
+              </div>
             </div>
-
-            <p className="text-xs text-[#94A3B8] text-center mt-4">
-              Λαμβάνουμε κάθε αίτημα οργανωμένα και επικοινωνούμε μαζί σας το
-              συντομότερο δυνατό.
-            </p>
           </motion.div>
         </div>
       </div>

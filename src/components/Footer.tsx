@@ -130,13 +130,13 @@ export default function Footer() {
         <div className="h-px bg-white/[0.08] my-8" />
 
         <div>
-          <p className="text-xs text-[#64748B] max-w-3xl leading-relaxed">
+          <p className="text-xs text-[#94A3B8] max-w-3xl leading-relaxed">
             Οι πληροφορίες του website και του ψηφιακού βοηθού είναι γενικής
             ενημέρωσης και δεν αντικαθιστούν εξατομικευμένη λογιστική ή
             φορολογική συμβουλή. Μη στέλνετε κωδικούς πρόσβασης μέσω φόρμας ή
             email.
           </p>
-          <p className="text-xs text-[#64748B] mt-2">
+          <p className="text-xs text-[#94A3B8] mt-2">
             © {new Date().getFullYear()} {BUSINESS.name}. Με επιφύλαξη παντός
             δικαιώματος.
           </p>

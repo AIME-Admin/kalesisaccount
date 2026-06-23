@@ -83,7 +83,7 @@ export default function Services() {
                 <p className="text-sm text-[#64748B] leading-relaxed">
                   {service.description}
                 </p>
-                <p className="text-[13px] text-[#94A3B8] leading-relaxed mt-3 pt-3 border-t border-dashed border-[#E5E7EB]">
+                <p className="text-[13px] text-[#64748B] leading-relaxed mt-3 pt-3 border-t border-dashed border-[#E5E7EB]">
                   {service.seoDetail}
                 </p>
                 <a

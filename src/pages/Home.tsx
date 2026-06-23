@@ -1,6 +1,7 @@
 import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
+import AudienceSection from "../components/AudienceSection";
 import Process from "../components/Process";
 import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import AssistantSection from "../components/AssistantSection";
@@ -24,6 +25,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <AudienceSection />
         <Process />
         <WhyWorkWithUs />
         <AssistantSection />

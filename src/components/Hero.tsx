@@ -53,7 +53,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: easeOut }}
           >
-            <span className="badge-red">Λογιστικό Γραφείο</span>
+            <span className="badge-red">Λογιστικό Γραφείο · Αχαρνές</span>
           </motion.div>
 
           <motion.h1
@@ -62,19 +62,19 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
             className="mt-6 text-[#111827]"
           >
-            Οργανωμένη λογιστική και φοροτεχνική υποστήριξη για επιχειρήσεις,
-            επαγγελματίες και ιδιώτες
+            Λογιστικό Γραφείο Φίλιππος Καλέσης στις Αχαρνές
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: easeOut }}
-            className="mt-5 max-w-xl mx-auto lg:mx-0 text-lg text-[#64748B] leading-relaxed"
+            className="mt-5 max-w-xl mx-auto lg:mx-0 text-lg text-[#475569] leading-relaxed"
           >
-            Υποστηρίζουμε επιχειρήσεις, επαγγελματίες και ιδιώτες με καθαρή
-            επικοινωνία, δομημένη καταγραφή αιτήματος και υπεύθυνη φοροτεχνική
-            καθοδήγηση.
+            Λογιστική και φοροτεχνική υποστήριξη για επιχειρήσεις, ελεύθερους
+            επαγγελματίες και ιδιώτες: λογιστική παρακολούθηση, φορολογικές
+            δηλώσεις, έναρξη επιχείρησης, myDATA και μισθοδοσία — με επικεφαλής
+            τον Φίλιππο Καλέση, Λογιστή - Φοροτεχνικό Α’ Τάξης.
           </motion.p>
 
           <motion.div

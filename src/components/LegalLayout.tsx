@@ -37,7 +37,7 @@ export default function LegalLayout({
         <h1 className="mt-6 text-3xl md:text-4xl font-bold text-[#111827]">
           {title}
         </h1>
-        <p className="mt-3 text-sm text-[#94A3B8]">
+        <p className="mt-3 text-sm text-[#64748B]">
           {BUSINESS.name} · Τελευταία ενημέρωση: {updated}
         </p>
 

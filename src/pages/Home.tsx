@@ -6,6 +6,7 @@ import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import AssistantSection from "../components/AssistantSection";
 import About from "../components/About";
 import SmartIntake from "../components/SmartIntake";
+import AssistantLauncher from "../components/AssistantLauncher";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
         <About />
         <SmartIntake />
       </main>
+      <AssistantLauncher />
     </>
   );
 }

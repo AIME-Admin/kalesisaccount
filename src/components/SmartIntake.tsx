@@ -124,7 +124,10 @@ export default function SmartIntake() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
           >
-            <div className="bg-white border border-[#E5E7EB] rounded-2xl p-6 md:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+            <div
+              id="intake-form-card"
+              className="bg-white border border-[#E5E7EB] rounded-2xl p-6 md:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] scroll-mt-20"
+            >
               <div className="flex items-center gap-3 mb-2">
                 <span className="icon-circle-red !w-11 !h-11">
                   <ClipboardList size={22} className="text-[#B91C1C]" />

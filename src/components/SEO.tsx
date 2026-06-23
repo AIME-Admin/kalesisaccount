@@ -32,6 +32,18 @@ const jsonLdAccountingService = {
     jobTitle: BUSINESS.jobTitle,
   },
   serviceType: services.map((s) => s.title),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Υπηρεσίες λογιστικής και φοροτεχνικής υποστήριξης",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.title,
+        description: s.description,
+      },
+    })),
+  },
 };
 
 const jsonLdPerson = {

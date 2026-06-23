@@ -20,6 +20,9 @@ dist-ssr
 # Machine-specific preview config
 .claude/launch.json
 
+# Local logo backup (old master kept locally, not tracked)
+src/assets/logo2.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

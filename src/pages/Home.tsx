@@ -1,11 +1,10 @@
 import SEO from "../components/SEO";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
-import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import Process from "../components/Process";
+import WhyWorkWithUs from "../components/WhyWorkWithUs";
 import AssistantSection from "../components/AssistantSection";
 import About from "../components/About";
-import FinalCTA from "../components/FinalCTA";
 import SmartIntake from "../components/SmartIntake";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
@@ -24,11 +23,10 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <WhyWorkWithUs />
         <Process />
+        <WhyWorkWithUs />
         <AssistantSection />
         <About />
-        <FinalCTA />
         <SmartIntake />
       </main>
     </>

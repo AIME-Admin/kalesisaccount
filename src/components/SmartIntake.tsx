@@ -7,12 +7,15 @@ import {
   MessageCircle,
   ShieldAlert,
   ExternalLink,
+  Phone,
+  Mail,
 } from "lucide-react";
 import {
   GOOGLE_FORM_EMBED_URL,
   GOOGLE_FORM_PUBLIC_URL,
   HAS_FORM_EMBED,
   HAS_FORM_PUBLIC,
+  BUSINESS,
 } from "../config";
 
 const benefits = [
@@ -78,8 +81,33 @@ export default function SmartIntake() {
               ))}
             </div>
 
+            {/* Prefer to talk first — direct contact */}
+            <div className="mt-8 rounded-xl border border-[#E5E7EB] bg-[#F8FAFC] px-4 py-4">
+              <p className="text-sm font-medium text-[#111827]">
+                Προτιμάτε να μιλήσουμε πρώτα;
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2.5">
+                <a
+                  href={BUSINESS.phoneHref}
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#E5E7EB] bg-white px-3.5 py-2 text-sm font-medium text-[#111827] hover:border-[#B91C1C] hover:text-[#B91C1C] transition-colors"
+                >
+                  <Phone size={15} className="text-[#B91C1C]" />
+                  <span className="font-mono-tabular">
+                    {BUSINESS.phoneDisplay}
+                  </span>
+                </a>
+                <a
+                  href={BUSINESS.emailHref}
+                  className="inline-flex items-center gap-2 rounded-lg border border-[#E5E7EB] bg-white px-3.5 py-2 text-sm font-medium text-[#111827] hover:border-[#B91C1C] hover:text-[#B91C1C] transition-colors"
+                >
+                  <Mail size={15} className="text-[#B91C1C]" />
+                  Στείλτε email
+                </a>
+              </div>
+            </div>
+
             {/* Safety note */}
-            <div className="mt-8 flex items-start gap-3 rounded-xl bg-[#FEF2F2] border border-[#FECACA] px-4 py-4">
+            <div className="mt-6 flex items-start gap-3 rounded-xl bg-[#FEF2F2] border border-[#FECACA] px-4 py-4">
               <ShieldAlert size={20} className="text-[#B91C1C] shrink-0 mt-0.5" />
               <p className="text-sm text-[#7F1D1D] leading-relaxed">
                 Μη στέλνετε κωδικούς Taxisnet, τραπεζικούς κωδικούς ή ευαίσθητα

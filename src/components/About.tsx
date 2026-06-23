@@ -14,7 +14,7 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-[#111827]">Φιλιππός Καλέσης</h2>
+            <h2 className="text-[#111827]">Φίλιππος Καλέσης</h2>
             <p className="mt-3 text-lg text-[#B91C1C] font-medium">
               {BUSINESS.jobTitle}
             </p>
@@ -58,7 +58,7 @@ export default function About() {
               </div>
 
               <h3 className="mt-4 text-lg font-semibold text-[#111827]">
-                Φιλιππός Καλέσης
+                Φίλιππος Καλέσης
               </h3>
               <p className="text-sm text-[#64748B]">{BUSINESS.jobTitle}</p>
 

@@ -10,8 +10,8 @@ export const CANONICAL_URL = `${SITE_URL}/`;
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;
 
 export const BUSINESS = {
-  name: "Λογιστικό Γραφείο Φιλιππός Καλέσης",
-  person: "Φιλιππός Καλέσης",
+  name: "Λογιστικό Γραφείο Φίλιππος Καλέσης",
+  person: "Φίλιππος Καλέσης",
   jobTitle: "Λογιστής - Φοροτεχνικός Α’ Τάξης",
   phoneDisplay: "+30 698 014 4612",
   phoneHref: "tel:+306980144612",
@@ -53,7 +53,7 @@ export const HAS_FORM_PUBLIC = GOOGLE_FORM_PUBLIC_URL.trim().length > 0;
 
 // Logo lives in /public so the same path works in dev and production builds.
 export const LOGO_SRC = "/logo.png";
-export const LOGO_ALT = "Λογιστικό Γραφείο Φιλιππός Καλέσης";
+export const LOGO_ALT = "Λογιστικό Γραφείο Φίλιππος Καλέσης";
 
 // Analytics: scripts load only when an id is provided via .env (no hardcoding).
 export const GA_ID = (import.meta.env.VITE_GA_ID as string | undefined)?.trim() || "";

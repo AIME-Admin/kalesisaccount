@@ -65,7 +65,7 @@ const jsonLdWebPage = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": `${SITE_URL}/#webpage`,
-  name: "Λογιστικό Γραφείο Φιλιππός Καλέσης | Λογιστής - Φοροτεχνικός Α’ Τάξης",
+  name: "Λογιστικό Γραφείο Φίλιππος Καλέσης | Λογιστής - Φοροτεχνικός Α’ Τάξης",
   url: CANONICAL_URL,
   inLanguage: "el-GR",
   description:

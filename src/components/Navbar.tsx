@@ -7,6 +7,7 @@ import { BUSINESS, LOGO_SRC, LOGO_ALT } from "../config";
 const navLinks = [
   { label: "Αρχική", href: "#hero" },
   { label: "Φόρμα", href: "#intake" },
+  { label: "Βοηθός", href: "#assistant" },
   { label: "Υπηρεσίες", href: "#services" },
   { label: "Διαδικασία", href: "#process" },
   { label: "Επικοινωνία", href: "#contact" },
@@ -56,7 +57,7 @@ export default function Navbar() {
             href="#hero"
             onClick={(e) => handleNavClick(e, "#hero")}
             className="flex items-center gap-3 shrink-0 group"
-            aria-label="Αρχική σελίδα — Λογιστικό Γραφείο Φιλιππός Καλέσης"
+            aria-label="Αρχική σελίδα — Λογιστικό Γραφείο Φίλιππος Καλέσης"
           >
             <img
               src={LOGO_SRC}
@@ -71,7 +72,7 @@ export default function Navbar() {
                 Λογιστικό Γραφείο
               </span>
               <span className="text-[15px] font-semibold text-[#111827]">
-                Φιλιππός Καλέσης
+                Φίλιππος Καλέσης
               </span>
             </span>
           </a>

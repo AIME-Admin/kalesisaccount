@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ClipboardList,
   MessageCircle,
@@ -8,11 +7,11 @@ import {
   Mail,
   ArrowRight,
   Phone,
-  Sparkles,
-  CornerDownRight,
+  Check,
+  Clock,
+  BadgeCheck,
 } from "lucide-react";
 import { BUSINESS, LOGO_SRC, LOGO_ALT } from "../config";
-import { assistantQuestions } from "../data/assistantQuestions";
 
 const trustBadges = [
   { icon: ClipboardList, text: "Δομημένη καταγραφή αιτήματος" },
@@ -21,16 +20,12 @@ const trustBadges = [
   { icon: ShieldCheck, text: "Γενική ενημέρωση χωρίς υπερβολές" },
 ];
 
-// A small, curated set of starter questions for the hero teaser.
-const starterIds = [
-  "services-overview",
-  "start-how",
-  "docs-tax-return",
-  "next-first-step",
+const highlights = [
+  "Λογιστική υποστήριξη επιχειρήσεων",
+  "myDATA & ηλεκτρονική τιμολόγηση",
+  "Μισθοδοσία & εργασιακά",
+  "Φορολογικές δηλώσεις & φοροτεχνικά",
 ];
-const starters = starterIds
-  .map((id) => assistantQuestions.find((q) => q.id === id))
-  .filter((q): q is NonNullable<typeof q> => Boolean(q));
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -40,9 +35,6 @@ function scrollToId(e: React.MouseEvent, id: string) {
 }
 
 export default function Hero() {
-  const [activeId, setActiveId] = useState<string | null>(null);
-  const active = starters.find((q) => q.id === activeId) ?? null;
-
   return (
     <section
       id="hero"
@@ -91,7 +83,11 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5, ease: easeOut }}
             className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3"
           >
-            <a href="#intake" onClick={(e) => scrollToId(e, "intake")} className="btn-primary">
+            <a
+              href="#intake"
+              onClick={(e) => scrollToId(e, "intake")}
+              className="btn-primary"
+            >
               Συμπληρώστε φόρμα ενδιαφέροντος
               <ArrowRight size={18} />
             </a>
@@ -123,7 +119,7 @@ export default function Hero() {
           </motion.ul>
         </div>
 
-        {/* Right: interactive assistant teaser */}
+        {/* Right: credentials / profile card */}
         <motion.div
           initial={{ opacity: 0, y: 40, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -132,95 +128,54 @@ export default function Hero() {
         >
           <div className="rounded-2xl bg-white border border-[#E5E7EB] shadow-[0_20px_50px_-20px_rgba(17,24,39,0.25)] overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-[#F1F5F9] bg-[#FBFAF8]">
-              <div className="flex items-center gap-2.5">
-                <span className="w-9 h-9 rounded-full bg-[#FEF2F2] flex items-center justify-center shrink-0">
-                  <img src={LOGO_SRC} alt={LOGO_ALT} width={24} height={24} className="w-6 h-6" loading="eager" />
-                </span>
-                <div className="leading-tight">
-                  <p className="text-sm font-semibold text-[#111827]">
-                    Βοηθός Συνεργασίας
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 text-xs text-[#16A34A]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#16A34A]" />
-                    Γενική ενημέρωση
-                  </span>
-                </div>
-              </div>
-              <Sparkles size={18} className="text-[#B91C1C]" />
-            </div>
-
-            {/* Conversation */}
-            <div className="px-5 py-5 min-h-[150px] flex flex-col gap-3">
-              <div className="flex items-start gap-2.5">
-                <span className="w-7 h-7 rounded-full bg-[#FEF2F2] flex items-center justify-center shrink-0">
-                  <img src={LOGO_SRC} alt="" width={18} height={18} className="w-[18px] h-[18px]" />
-                </span>
-                <p className="rounded-2xl rounded-tl-sm bg-[#F8FAFC] border border-[#E5E7EB] px-4 py-2.5 text-sm text-[#334155]">
-                  Καλωσορίσατε. Πώς μπορούμε να βοηθήσουμε;
+            <div className="flex items-center gap-4 p-6 bg-gradient-to-br from-[#172033] to-[#111827] text-white">
+              <span className="w-16 h-16 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
+                <img
+                  src={LOGO_SRC}
+                  alt={LOGO_ALT}
+                  width={48}
+                  height={48}
+                  className="w-12 h-12"
+                  loading="eager"
+                />
+              </span>
+              <div className="min-w-0">
+                <p className="text-lg font-semibold leading-tight">
+                  {BUSINESS.person}
+                </p>
+                <p className="mt-1 inline-flex items-center gap-1.5 text-sm text-[#CBD5E1]">
+                  <BadgeCheck size={15} className="text-[#F87171] shrink-0" />
+                  {BUSINESS.jobTitle}
                 </p>
               </div>
-
-              <AnimatePresence mode="wait">
-                {active && (
-                  <motion.div
-                    key={active.id}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.25, ease: easeOut }}
-                    className="flex flex-col gap-3"
-                  >
-                    <p className="self-end max-w-[85%] rounded-2xl rounded-tr-sm bg-[#B91C1C] text-white px-4 py-2.5 text-sm">
-                      {active.question}
-                    </p>
-                    <div className="flex items-start gap-2.5">
-                      <span className="w-7 h-7 rounded-full bg-[#FEF2F2] flex items-center justify-center shrink-0">
-                        <img src={LOGO_SRC} alt="" width={18} height={18} className="w-[18px] h-[18px]" />
-                      </span>
-                      <p className="rounded-2xl rounded-tl-sm bg-[#F8FAFC] border border-[#E5E7EB] px-4 py-2.5 text-sm text-[#334155] leading-relaxed">
-                        {active.answer}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
 
-            {/* Quick replies */}
-            <div className="px-5 pb-4">
-              <p className="text-[11px] font-medium tracking-wide uppercase text-[#94A3B8] mb-2.5">
-                Γρήγορες ερωτήσεις
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {starters.map((q) => (
-                  <button
-                    key={q.id}
-                    onClick={() => setActiveId(activeId === q.id ? null : q.id)}
-                    aria-pressed={activeId === q.id}
-                    className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B91C1C] ${
-                      activeId === q.id
-                        ? "border-[#B91C1C] bg-[#FEF2F2] text-[#B91C1C]"
-                        : "border-[#E5E7EB] text-[#475569] hover:border-[#FECACA] hover:text-[#B91C1C]"
-                    }`}
-                  >
-                    {q.question}
-                  </button>
-                ))}
-              </div>
-            </div>
+            {/* Highlights */}
+            <ul className="p-6 flex flex-col gap-3">
+              {highlights.map((h) => (
+                <li key={h} className="flex items-center gap-3">
+                  <span className="w-6 h-6 rounded-full bg-[#FEF2F2] flex items-center justify-center shrink-0">
+                    <Check size={14} className="text-[#B91C1C]" />
+                  </span>
+                  <span className="text-sm text-[#334155]">{h}</span>
+                </li>
+              ))}
+            </ul>
 
-            {/* Footer link — opens the assistant popup */}
-            <button
-              type="button"
-              onClick={() =>
-                window.dispatchEvent(new CustomEvent("open-assistant"))
-              }
-              className="w-full flex items-center justify-center gap-1.5 border-t border-[#F1F5F9] px-5 py-3 text-sm font-medium text-[#B91C1C] hover:bg-[#FEF2F2] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B91C1C]"
-            >
-              <CornerDownRight size={15} />
-              Δείτε όλες τις ερωτήσεις του βοηθού
-            </button>
+            {/* Footer: hours + phone */}
+            <div className="px-6 py-4 border-t border-[#F1F5F9] bg-[#FBFAF8] flex flex-wrap items-center justify-between gap-3">
+              <span className="inline-flex items-center gap-2 text-sm text-[#64748B]">
+                <Clock size={15} className="text-[#B91C1C]" />
+                {BUSINESS.hours.display}
+              </span>
+              <a
+                href={BUSINESS.phoneHref}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#B91C1C] hover:underline font-mono-tabular"
+              >
+                <Phone size={14} />
+                {BUSINESS.phoneDisplay}
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

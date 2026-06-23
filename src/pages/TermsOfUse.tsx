@@ -6,8 +6,8 @@ export default function TermsOfUse() {
   return (
     <LegalLayout
       title="Όροι Χρήσης"
-      metaTitle="Όροι Χρήσης | Λογιστικό Γραφείο Φιλιππός Καλέσης"
-      metaDescription="Οι όροι χρήσης του ιστότοπου του Λογιστικού Γραφείου Φιλιππός Καλέσης."
+      metaTitle="Όροι Χρήσης | Λογιστικό Γραφείο Φίλιππος Καλέσης"
+      metaDescription="Οι όροι χρήσης του ιστότοπου του Λογιστικού Γραφείου Φίλιππος Καλέσης."
       path="/terms"
       updated="Ιούνιος 2026"
     >

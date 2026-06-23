@@ -25,7 +25,7 @@ const svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http
   <rect x="0" y="0" width="12" height="${H}" fill="#B91C1C"/>
   <circle cx="1360" cy="200" r="260" fill="#ffffff" opacity="0.03"/>
   <rect x="86" y="105" width="190" height="190" rx="26" fill="#ffffff"/>
-  <text x="320" y="180" font-family="DejaVu Serif, Georgia, serif" font-size="58" font-weight="700" fill="#ffffff">Λογιστικό Γραφείο Φιλιππός Καλέσης</text>
+  <text x="320" y="180" font-family="DejaVu Serif, Georgia, serif" font-size="58" font-weight="700" fill="#ffffff">Λογιστικό Γραφείο Φίλιππος Καλέσης</text>
   <rect x="323" y="210" width="72" height="4" rx="2" fill="#B91C1C"/>
   <text x="320" y="262" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" fill="#94A3B8">Φόρμα Ενδιαφέροντος · Λογιστής - Φοροτεχνικός Α’ Τάξης</text>
 </svg>`;

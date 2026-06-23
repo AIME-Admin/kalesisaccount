@@ -36,7 +36,7 @@ const ogSvg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http
   <rect x="0" y="0" width="10" height="630" fill="#B91C1C"/>
   <circle cx="980" cy="315" r="230" fill="#ffffff" opacity="0.03"/>
   <text x="100" y="250" font-family="DejaVu Serif, Georgia, serif" font-size="62" font-weight="700" fill="#ffffff">Λογιστικό Γραφείο</text>
-  <text x="100" y="330" font-family="DejaVu Serif, Georgia, serif" font-size="62" font-weight="700" fill="#ffffff">Φιλιππός Καλέσης</text>
+  <text x="100" y="330" font-family="DejaVu Serif, Georgia, serif" font-size="62" font-weight="700" fill="#ffffff">Φίλιππος Καλέσης</text>
   <rect x="103" y="372" width="64" height="4" rx="2" fill="#B91C1C"/>
   <text x="100" y="430" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" fill="#94A3B8">Λογιστής - Φοροτεχνικός Α’ Τάξης</text>
   <text x="100" y="478" font-family="DejaVu Sans, Arial, sans-serif" font-size="26" fill="#64748B">Λογιστική &amp; φοροτεχνική υποστήριξη · myDATA · μισθοδοσία</text>

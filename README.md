@@ -1,4 +1,4 @@
-# Λογιστικό Γραφείο Φιλιππός Καλέσης — Website (Pack 2)
+# Λογιστικό Γραφείο Φίλιππος Καλέσης — Website (Pack 2)
 
 Premium one-page website with smart intake form, knowledge assistant
 (Βοηθός Συνεργασίας), SEO-rich FAQ and full structured data.

@@ -4,10 +4,10 @@ import { BUSINESS, LOGO_SRC, LOGO_ALT } from "../config";
 
 const quickLinks = [
   { label: "Αρχική", href: "#hero" },
-  { label: "Φόρμα", href: "#intake" },
-  { label: "Βοηθός", href: "#assistant" },
   { label: "Υπηρεσίες", href: "#services" },
   { label: "Διαδικασία", href: "#process" },
+  { label: "Βοηθός", href: "#assistant" },
+  { label: "Φόρμα", href: "#intake" },
   { label: "Επικοινωνία", href: "#contact" },
 ];
 

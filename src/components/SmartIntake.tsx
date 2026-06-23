@@ -111,16 +111,24 @@ export default function SmartIntake() {
 
               {HAS_FORM_EMBED ? (
                 <div className="rounded-xl overflow-hidden border border-[#E5E7EB]">
+                  {/*
+                    Width is fluid (100%). Height is responsive per breakpoint
+                    because a cross-origin Google Form can't report its own
+                    height: it reflows TALLER on narrow screens (single column,
+                    ~340px wide) and shorter on the wide tablet width, then a bit
+                    taller again in the desktop two-column layout (~450px column).
+                    Tune these px if needed after checking on a real device.
+                  */}
                   <iframe
                     src={GOOGLE_FORM_EMBED_URL}
                     width="100%"
-                    height={1750}
+                    height={2350}
                     frameBorder={0}
                     marginHeight={0}
                     marginWidth={0}
                     loading="lazy"
                     title="Φόρμα Ενδιαφέροντος"
-                    className="w-full"
+                    className="block w-full h-[2700px] sm:h-[2050px] lg:h-[2350px]"
                   >
                     Φόρτωση…
                   </iframe>

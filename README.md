@@ -54,12 +54,12 @@ fallback). `public/_redirects` covers Netlify / Cloudflare Pages. For other
 hosts: Vercel → add a rewrite to `/index.html`; Apache → `.htaccess` fallback;
 Nginx → `try_files $uri /index.html`.
 
-## Pending client input (placeholders in code)
+## Pending client input
 
-- `[ΩΡΕΣ ΛΕΙΤΟΥΡΓΙΑΣ]` — opening hours (footer).
-- Google Form URLs (intake) — set in `.env`.
 - Legal pages — content is in place; recommend a final review by the client /
   a lawyer before launch.
 
 Done: production domain (`filipposkalesis.gr`), business address
-(Γοργοποτάμου 10-12, Αχαρνές 13671), and Privacy / Cookies / Terms pages.
+(Γοργοποτάμου 10-12, Αχαρνές 13671), opening hours, the live Google Form
+(intake, defaults in `src/config.ts`, overridable via `.env`), and
+Privacy / Cookies / Terms pages.

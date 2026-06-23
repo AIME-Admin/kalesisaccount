@@ -36,11 +36,18 @@ export const BUSINESS = {
     encodeURIComponent("Γοργοποτάμου 10-12, Αχαρνές 13671"),
 } as const;
 
-// Google Form: set these in .env to embed / link the real intake form.
+// Google Form (live intake form). Defaults are the production form; override
+// with VITE_GOOGLE_FORM_EMBED_URL / VITE_GOOGLE_FORM_PUBLIC_URL in .env.
+const DEFAULT_FORM_EMBED_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSce2w0VHAjPI4jyyed4fkk1ipKoxP0G5RyoIhoPCXnlkoyN6A/viewform?embedded=true";
+const DEFAULT_FORM_PUBLIC_URL = "https://forms.gle/5nAynLvwuVTiQToz7";
+
 export const GOOGLE_FORM_EMBED_URL =
-  (import.meta.env.VITE_GOOGLE_FORM_EMBED_URL as string | undefined) || "";
+  (import.meta.env.VITE_GOOGLE_FORM_EMBED_URL as string | undefined) ||
+  DEFAULT_FORM_EMBED_URL;
 export const GOOGLE_FORM_PUBLIC_URL =
-  (import.meta.env.VITE_GOOGLE_FORM_PUBLIC_URL as string | undefined) || "";
+  (import.meta.env.VITE_GOOGLE_FORM_PUBLIC_URL as string | undefined) ||
+  DEFAULT_FORM_PUBLIC_URL;
 export const HAS_FORM_EMBED = GOOGLE_FORM_EMBED_URL.trim().length > 0;
 export const HAS_FORM_PUBLIC = GOOGLE_FORM_PUBLIC_URL.trim().length > 0;
 

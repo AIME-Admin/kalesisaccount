@@ -114,7 +114,7 @@ export default function SmartIntake() {
                   <iframe
                     src={GOOGLE_FORM_EMBED_URL}
                     width="100%"
-                    height={900}
+                    height={1750}
                     frameBorder={0}
                     marginHeight={0}
                     marginWidth={0}

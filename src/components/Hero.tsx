@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import {
   ClipboardList,
-  MessageCircle,
+  FolderCheck,
   Building2,
-  ShieldCheck,
   Mail,
   ArrowRight,
   Phone,
@@ -14,17 +13,17 @@ import {
 import { BUSINESS, LOGO_SRC, LOGO_ALT } from "../config";
 
 const trustBadges = [
-  { icon: ClipboardList, text: "Δομημένη καταγραφή αιτήματος" },
-  { icon: MessageCircle, text: "Άμεση επικοινωνία" },
+  { icon: ClipboardList, text: "Καθαρή εικόνα υποχρεώσεων" },
+  { icon: FolderCheck, text: "Οργάνωση δικαιολογητικών" },
+  { icon: Clock, text: "Προσοχή στις προθεσμίες" },
   { icon: Building2, text: "Υποστήριξη επιχειρήσεων & ιδιωτών" },
-  { icon: ShieldCheck, text: "Γενική ενημέρωση χωρίς υπερβολές" },
 ];
 
 const highlights = [
-  "Λογιστική υποστήριξη επιχειρήσεων",
+  "Βιβλία, ΦΠΑ & προθεσμίες",
   "myDATA & ηλεκτρονική τιμολόγηση",
   "Μισθοδοσία & εργασιακά",
-  "Φορολογικές δηλώσεις & φοροτεχνικά",
+  "Φορολογικές δηλώσεις",
 ];
 
 const easeOut: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -62,7 +61,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
             className="mt-6 text-[#111827]"
           >
-            Λογιστικό Γραφείο Φίλιππος Καλέσης στις Αχαρνές
+            Λογιστική υποστήριξη με καθαρές οδηγίες και συνέπεια στις προθεσμίες
           </motion.h1>
 
           <motion.p
@@ -71,10 +70,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35, ease: easeOut }}
             className="mt-5 max-w-xl mx-auto lg:mx-0 text-lg text-[#475569] leading-relaxed"
           >
-            Λογιστική και φοροτεχνική υποστήριξη για επιχειρήσεις, ελεύθερους
-            επαγγελματίες και ιδιώτες στις Αχαρνές — φορολογικές δηλώσεις, έναρξη
-            δραστηριότητας, myDATA, μισθοδοσία και οι καθημερινές λογιστικές
-            υποχρεώσεις, με πρακτική και προσωπική προσέγγιση.
+            Το γραφείο του Φίλιππου Καλέση στις Αχαρνές υποστηρίζει επιχειρήσεις,
+            ελεύθερους επαγγελματίες και ιδιώτες σε φορολογικές δηλώσεις, έναρξη
+            δραστηριότητας, myDATA, μισθοδοσία και καθημερινές λογιστικές
+            υποχρεώσεις.
           </motion.p>
 
           <motion.div
@@ -88,7 +87,7 @@ export default function Hero() {
               onClick={(e) => scrollToId(e, "intake")}
               className="btn-primary"
             >
-              Συμπληρώστε φόρμα ενδιαφέροντος
+              Ξεκινήστε με το αίτημά σας
               <ArrowRight size={18} />
             </a>
             <a href={BUSINESS.phoneHref} className="btn-secondary">

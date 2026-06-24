@@ -55,14 +55,19 @@ export default function Hero() {
             <span className="badge-red">Λογιστικό Γραφείο · Αχαρνές</span>
           </motion.div>
 
-          <motion.h1
+          {/* Plain semantic <h1> (present immediately in the DOM); only the
+              wrapper animates, so the heading itself is easy to detect. */}
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: easeOut }}
-            className="mt-6 text-[#111827]"
+            className="mt-6"
           >
-            Λογιστική υποστήριξη με καθαρές οδηγίες και συνέπεια στις προθεσμίες
-          </motion.h1>
+            <h1 className="text-[#111827]">
+              Λογιστική υποστήριξη με καθαρές οδηγίες και συνέπεια στις
+              προθεσμίες
+            </h1>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -70,10 +75,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.35, ease: easeOut }}
             className="mt-5 max-w-xl mx-auto lg:mx-0 text-lg text-[#475569] leading-relaxed"
           >
-            Το γραφείο του Φίλιππου Καλέση στις Αχαρνές υποστηρίζει επιχειρήσεις,
-            ελεύθερους επαγγελματίες και ιδιώτες σε φορολογικές δηλώσεις, έναρξη
-            δραστηριότητας, myDATA, μισθοδοσία και καθημερινές λογιστικές
-            υποχρεώσεις.
+            Το λογιστικό γραφείο του Φίλιππου Καλέση στις Αχαρνές υποστηρίζει
+            επιχειρήσεις, ελεύθερους επαγγελματίες και ιδιώτες σε φορολογικές
+            δηλώσεις, έναρξη δραστηριότητας, myDATA, μισθοδοσία και καθημερινές
+            λογιστικές υποχρεώσεις.
           </motion.p>
 
           <motion.div

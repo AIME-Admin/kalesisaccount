@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router";
-import Analytics from "./components/Analytics";
+import ConsentBanner from "./components/ConsentBanner";
 import ScrollManager from "./components/ScrollManager";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -11,7 +11,7 @@ import TermsOfUse from "./pages/TermsOfUse";
 export default function App() {
   return (
     <>
-      <Analytics />
+      <ConsentBanner />
       <ScrollManager />
       <Navbar />
       <Routes>

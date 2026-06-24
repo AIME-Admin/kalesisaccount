@@ -55,6 +55,9 @@ export const HAS_FORM_PUBLIC = GOOGLE_FORM_PUBLIC_URL.trim().length > 0;
 export const LOGO_SRC = "/logo.png";
 export const LOGO_ALT = "Λογιστικό Γραφείο Φίλιππος Καλέσης";
 
-// Analytics: scripts load only when an id is provided via .env (no hardcoding).
-export const GA_ID = (import.meta.env.VITE_GA_ID as string | undefined)?.trim() || "";
+// Analytics. GA4 loads via the consent banner (Google Consent Mode v2): it
+// never sets analytics cookies until the visitor accepts. Override with
+// VITE_GA_ID; empty string disables analytics entirely.
+export const GA_ID =
+  (import.meta.env.VITE_GA_ID as string | undefined)?.trim() ?? "G-SG78WD4N86";
 export const GTM_ID = (import.meta.env.VITE_GTM_ID as string | undefined)?.trim() || "";

@@ -28,7 +28,7 @@ is required for the site to build — sensible placeholders are used until set.
 | `VITE_SITE_URL` | Final domain — used for canonical, Open Graph & JSON-LD. |
 | `VITE_GOOGLE_FORM_EMBED_URL` | Google Form embed `src` (`…/viewform?embedded=true`). Embeds the intake form. |
 | `VITE_GOOGLE_FORM_PUBLIC_URL` | Public Google Form link (the "open in new tab" button). |
-| `VITE_GA_ID` | Google Analytics 4 id. Defaults to `G-SG78WD4N86`; set to empty to disable analytics entirely. |
+| `VITE_GA_ID` | Google Analytics 4 id. Defaults to `G-X7QBN3K6TL`; set to empty to disable analytics entirely. |
 | `VITE_GTM_ID` | Google Tag Manager id (`GTM-XXXX`). Reserved; not currently wired. |
 
 The production domain is `filipposkalesis.gr` (set in `index.html` for
@@ -36,7 +36,7 @@ canonical / OG, in `src/config.ts`, and in `VITE_SITE_URL`).
 
 ## Analytics & cookie consent
 
-GA4 (`G-SG78WD4N86`) runs through `src/components/ConsentBanner.tsx` using
+GA4 (`G-X7QBN3K6TL`) runs through `src/components/ConsentBanner.tsx` using
 **Google Consent Mode v2**: consent defaults to *denied*, so GA runs cookieless
 and sets **no `_ga` cookies until the visitor clicks "Αποδοχή"** on the consent
 banner. The choice is stored in `localStorage` (`kalesis-cookie-consent`). This

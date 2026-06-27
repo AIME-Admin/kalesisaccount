@@ -59,5 +59,5 @@ export const LOGO_ALT = "Λογιστικό Γραφείο Φίλιππος Κα
 // never sets analytics cookies until the visitor accepts. Override with
 // VITE_GA_ID; empty string disables analytics entirely.
 export const GA_ID =
-  (import.meta.env.VITE_GA_ID as string | undefined)?.trim() ?? "G-SG78WD4N86";
+  (import.meta.env.VITE_GA_ID as string | undefined)?.trim() ?? "G-X7QBN3K6TL";
 export const GTM_ID = (import.meta.env.VITE_GTM_ID as string | undefined)?.trim() || "";
